@@ -4,8 +4,19 @@
 
 {% block main %}
 
+<div class="container">
+<div class="row">
 {% for item in items %}
-{% include 'inc/_post_element.html' %}
+{% if item.pk in check %}
+    {% include 'inc/_post_element.html' %}
+    </div>
+    <div class="row">
+{% else %}
+     {% include 'inc/_post_element.html' %}
+{% endif %}
 {% endfor %}
+</div>
+
 {% endblock %}
+
 

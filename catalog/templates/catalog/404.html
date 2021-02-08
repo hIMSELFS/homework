@@ -3,11 +3,12 @@
 {% block title %} eShop {% endblock %}
 
 
-{% block profile %}
+{% block main %}
 
-<div class="testcol">
-    login: user1259
-    password: 126fsd8f4we11w
-</div>
-
+<h1>Places</h1>
+<ul>
+{% for place in object_list %}
+    <font color="white"><li>{{ place.shortName }}</li></font>
+{% endfor %}
+</ul>
 {% endblock %}
