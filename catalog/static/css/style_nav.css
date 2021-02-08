@@ -1,0 +1,84 @@
+:root{
+ --color-back:#212121;
+ --color-text:rgba(249, 168, 37, 1);
+ --color-eff:rgba(50,50,50);
+}
+html{
+    background:var(--color-back) !important;
+}
+
+body{
+    background:var(--color-back) !important;
+}
+
+/* Navigation*/
+
+.navbar-light .navbar-brand {
+    color:var(--color-text) !important;
+}
+
+.nav-link{
+    color:var(--color-text) !important;
+}
+
+.disabled{
+    color:var(--color-eff) !important;
+}
+
+.dropdown-item{
+    color:var(--color-text) !important;
+}
+
+.dropdown-item:hover{
+    background:var(--color-eff) !important;
+}
+
+.dropdown-menu{
+    background:var(--color-back) !important;
+    color:var(--color-text) !important;
+}
+
+/*Page Login and Reg*/
+
+.login-text{
+    color: var(--color-text) !important;
+    position: relative;
+    left:2% !important;
+}
+
+.login p label{
+    color: var(--color-text) !important;
+    font-weight: bold;
+}
+
+.login p {
+    width:35%;
+    position: relative;
+    left:35% !important;
+}
+
+.login button {
+    width:35%;
+    position: relative;
+    left:35% !important;
+    background:var(--color-text) !important;
+    border-color:var(--color-text) !important;
+    color:var(--color-back) !important;
+    font-weight: bold;
+}
+
+.login-text{
+    margin-top:1.4rem !important;
+}
+
+.login ul{
+    color:var(--color-text) !important; !important;
+}
+/*Profile*/
+
+.button-profile{
+    background:var(--color-text) !important;
+    color:var(--color-back) !important;
+}
+/**/
+

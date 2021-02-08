@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Вход {% endblock %}
+
+{%block link %}
+<link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+{% endblock %}
+
+{% block nav %}
+ {% include 'inc/_nav.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="container login">
+<form  method="post">
+            <h1 class="login-text d-flex justify-content-center">Войти</h1>
+            {% csrf_token %}
+            {{ form.non_field.errors }}
+            {{ form.as_p }}
+            <button type="submit" value="Submit" class="btn btn-primary btn-block">Войти</button>
+</form>
+</div>
+{% endblock %}
+
+
+

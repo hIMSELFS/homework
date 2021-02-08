@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block main %}
+
+{% for item in items %}
+{% include 'inc/_post_element.html' %}
+{% endfor %}
+{% endblock %}
+

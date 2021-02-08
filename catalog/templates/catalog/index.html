@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row align-items-start">
+{% for item in items %}
+        {% for i in check %}
+            {% if i == item.pk %}
+             {{i}}
+            {% endif %}
+        {% endfor %}
+        {% include 'inc/_post_element.html' %}
+<div class="col"></div>
+
+{% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
+

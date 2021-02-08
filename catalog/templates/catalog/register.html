@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Регистер {% endblock %}
+
+
+{% include 'inc/_nav.html' %}
+<h1>Регистрация</h1>
+
+{% block main %}
+<div class="container login">
+<form  method="post">
+            <h1 class="login-text d-flex justify-content-center">Регистрация</h1>
+            {% csrf_token %}
+            {{ form.non_field.errors }}
+            {{ form.as_p }}
+            <button type="submit" value="Submit" class="btn btn-primary btn-block">Регистрация</button>
+</form>
+</div>
+{% endblock %}
+
+
+
+
