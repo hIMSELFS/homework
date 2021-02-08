@@ -1,0 +1,39 @@
+<div class="modal fade" id="view_profile" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Профиль <b>{{ user.username }}</b></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          {% if user.image %}
+          pass
+          {% else %}
+          <img src="media/not_image.jpg" class="rounded float-end" width="200px" height="150px" alt="...">
+          {% endif %}
+          {% if user.first_name and user.last_name %}
+          <b>{% if user.first_name %} {{user.first_name}} {% else %} - {% endif %}</b>
+          <b>{% if user.last_name %} {{user.last_name}} {% else %} - {% endif %}</b>
+          {% else %} {{ user.username }} {% endif %}
+          <p>
+            Статус: <b>{% if user.is_superuser %}Суперпользователь{% else %}{% if user.is_staff %}Администратор{% else %}
+              Пользователь {% endif %} {% endif %}</b>
+          </p>
+          <p>
+          E-mail:
+                {% if user.email %}
+                    <b>{{ user.email }}</b>
+                {% else %}
+                        Не указано
+                {% endif %}
+          </p>
+          <p>
+          Дата Регистрации: <b>{{ user.date_joined }}</b>
+          </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn button-profile" data-bs-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<nav class="navbar navbar-light navbar-expand-lg " style="background-color: #212121;">
+<div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Каталог
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for item in category_list %}
+            <li><a class="dropdown-item" href="{% url 'category' item.uniCat %}"> {{item.category}} </a>
+            {% endfor %}
+          </ul>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Профиль
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#view_profile" href="#">Профиль</a></li>
+            <li><a class="dropdown-item" href="#">Сменить Пароль</a></li>
+            <li><a class="dropdown-item" href="#">Корзина</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {% if request.user.is_superuser %}
+            <li><a class="dropdown-item" href="{% url 'admin:index' %}">Админка</a></li>
+            {% endif %}
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
+
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Вход</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Регистрация</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Что ищем?" aria-label="Search">
+        <button class="btn btn-outline-warning" type="submit">Поиск</button>
+      </form>
+    </div>
+  </div>
+</nav>
