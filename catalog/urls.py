@@ -10,4 +10,5 @@ urlpatterns = [
     path('login/',user_login, name='login'),
     path('test/',TestPage.as_view(),name='test'),
     path('catalog/<str:category_uniCat>/', get_category, name='category'),
+    path(r'^place_search/$', PlaceListView.as_view(), name='place_search'),
 ]

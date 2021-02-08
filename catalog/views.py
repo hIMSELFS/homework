@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.views.generic import ListView,DetailView
 from django.contrib import messages
 from django.contrib.auth import login, logout
+from django.db.models import Q
 
 from .models import *
 from .form import *
@@ -63,6 +64,20 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
+class PlaceListView(ListView):
+    model = Items
+    template_name = 'catalog/404.html'
+
+    def get_queryset(self):
+        # Получаем не отфильтрованный кверисет всех моделей
+        queryset = super(PlaceListView, self).get_queryset()
+        q = self.request.GET.get("q")
+        if q:
+        # Если 'q' в GET запросе, фильтруем кверисет по данным из 'q'
+            print(queryset.filter(Q(shortName__icontains=q)))
+            return queryset.filter(Q(shortName__icontains=q))
+        print('not: ',queryset)
+        return redirect('home')
 
 class TestPage(ListView):
     template_name = 'catalog/404.html'
