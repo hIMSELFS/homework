@@ -1,4 +1,4 @@
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3 item-product" style="max-width: 350px;">
     <div class="row g-0">
         <div class="col-md-4">
             {% if item.image %}
@@ -7,9 +7,9 @@
             <img src="media/not_image.jpg" class="rounded float-end" width="200px" height="150px" alt="...">
             {% endif %}
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 main-text-product">
             <div class="card-body">
-                <h5 class="card-title">{{item.shortName}}</h5>
+                <h5 class="card-title item-product">{{item.shortName}}</h5>
                 <p class="card-text"><small class="text-muted">id:{{item.id}}</small></p>
                 <p class="card-text">{{item.shortText}}</p>
                 <p class="card-text"><small class="text-muted">price:{{item.price}}тенге</small></p>

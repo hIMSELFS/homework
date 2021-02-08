@@ -46,8 +46,8 @@
         {% endif %}
       </ul>
 
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Что ищем?" aria-label="Search">
+      <form class="d-flex" action="{% url 'place_search' %}" method="GET">
+        <input class="form-control me-2" type="search" placeholder="Что ищем?" name="q" aria-label="Search">
         <button class="btn btn-outline-warning" type="submit">Поиск</button>
       </form>
     </div>
