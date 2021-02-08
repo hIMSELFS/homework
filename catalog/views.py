@@ -16,14 +16,19 @@ class HomePage(ListView):
         context = super(HomePage, self).get_context_data(**kwargs)
         context['category_list'] = category.objects.all()
         context['title'] = 'eShop'
-        context['check'] = [i for i in range(0,101,2)][1::]
+        context['check'] = [i for i in range(0,101,3)][1::]
         return context
 
 def get_category(request, category_uniCat):
-     #items = Items.objects.filter(pk = category.objects.filter(pk=1))
      Category = category.objects.get(uniCat=category_uniCat)
+     items = Items.objects.filter(category=Category.pk)
+     print(items)
      category_list = category.objects.all()
-     return render(request, 'catalog/category.html', {'category': Category,'title':Category.category,'category_list':category_list})
+     contex = {'items':items,
+               'category': Category,
+               'title':'eShop: ' + Category.category,
+               'category_list':category_list}
+     return render(request, 'catalog/category.html', contex)
 
 def register(request):
     if request.method == 'POST':
